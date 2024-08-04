@@ -1,1 +1,25 @@
 /*  your css code here. If applicable */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.circle {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.active {
+    background-color: #000;
+    color: #fff;
+}
+
+button {
+    display: block;
+    width: 100px;
+    margin: 20px auto;
+}
