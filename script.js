@@ -1,30 +1,24 @@
-let activeCircle = 1;
-const totalCircles = 5;
-
-const circles = Array.from(document.querySelectorAll('.circle'));
+let activeCircle = 0;
+const circles = document.querySelectorAll('.circle');
 const nextButton = document.querySelector('#next');
 const prevButton = document.querySelector('#prev');
 
 nextButton.addEventListener('click', () => {
-    circles[activeCircle - 1].classList.remove('active');
-    activeCircle += 1;
-    circles[activeCircle - 1].classList.add('active');
-
+    circles[activeCircle].classList.remove('active');
+    activeCircle++;
+    circles[activeCircle].classList.add('active');
     prevButton.disabled = false;
-
-    if (activeCircle === totalCircles) {
+    if (activeCircle === circles.length - 1) {
         nextButton.disabled = true;
     }
 });
 
 prevButton.addEventListener('click', () => {
-    circles[activeCircle - 1].classList.remove('active');
-    activeCircle -= 1;
-    circles[activeCircle - 1].classList.add('active');
-
+    circles[activeCircle].classList.remove('active');
+    activeCircle--;
+    circles[activeCircle].classList.add('active');
     nextButton.disabled = false;
-
-    if (activeCircle === 1) {
+    if (activeCircle === 0) {
         prevButton.disabled = true;
     }
 });
