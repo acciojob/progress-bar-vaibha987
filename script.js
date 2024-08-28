@@ -2,7 +2,7 @@ const next=document.getElementById("next")
 const prev=document.getElementById("prev")
 const circles=document.querySelectorAll(".circle")
 let activeClass=1
-next.addEventListener('click' ()=>{
+next.addEventListener('click', ()=>{
 activeClass++
 update();
 })
