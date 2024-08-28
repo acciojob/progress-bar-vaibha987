@@ -1,24 +1,26 @@
-let activeCircle = 0;
-const circles = document.querySelectorAll('.circle');
-const nextButton = document.querySelector('#next');
-const prevButton = document.querySelector('#prev');
+const next=document.getElementById("next")
+const prev=document.getElementById("prev")
+const circles=document.querySelectorAll(".circle")
+let activeClass=1
+next.addEventListener('click' ()=>{
+activeClass++
+update();
+})
 
-nextButton.addEventListener('click', () => {
-    circles[activeCircle].classList.remove('active');
-    activeCircle++;
-    circles[activeCircle].classList.add('active');
-    prevButton.disabled = false;
-    if (activeCircle === circles.length - 1) {
-        nextButton.disabled = true;
-    }
-});
+prev.addEventListener('click',()=>{
+activeClass--
+update()		
+})
 
-prevButton.addEventListener('click', () => {
-    circles[activeCircle].classList.remove('active');
-    activeCircle--;
-    circles[activeCircle].classList.add('active');
-    nextButton.disabled = false;
-    if (activeCircle === 0) {
-        prevButton.disabled = true;
-    }
-});
+function update() {
+circles.forEach((circle, idx) => {	
+if(idx < activeClass) {
+            circle.classList.add('active');
+        } else {
+            circle.classList.remove('active');
+        }	
+})
+prev.disabled = activeClass === 1;
+next.disabled = activeClass === circles.length;
+}	
+	
